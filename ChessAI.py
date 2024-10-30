@@ -81,7 +81,8 @@ class ChessAI():
             return self.calc_score(game_state)
     
         if game_state.is_white_move(): #white chooses highest scoring move
-            best = -1*self.check_mate
+            #best = -1*self.check_mate
+            best=float("-inf")
             for move in valid_moves: 
                 game_state.make_move(move,ai_thinking=True)
                 next_moves = game_state.legal_moves()
@@ -97,7 +98,8 @@ class ChessAI():
                     break
             return best 
         else: #black chooses lowest scoring move
-            best = self.check_mate
+            #best = self.check_mate
+            best=float("inf")
             for move in valid_moves: 
                 game_state.make_move(move,ai_thinking=True)
                 next_moves = game_state.legal_moves()
